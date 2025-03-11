@@ -274,7 +274,6 @@ exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/kitty'
 exec_always --no-startup-id picom --config /home/fran4end/.config/i3/picom.conf
 exec_always --no-startup-id twmnd 
 exec_always --no-startup-id ~/.config/polybar/launch.sh --grayblocks
-exec_always --no-startup-id ~/.config/i3/volume-limit.sh
 
 # media keys
 # bindsym F7 exec playerctl play-pause
