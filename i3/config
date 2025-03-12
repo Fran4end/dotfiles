@@ -266,11 +266,13 @@ exec_always feh --bg-scale /home/fran4end/Pictures/wallpaper.png
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 
-# open tabs and star [polybar]
+# open tabs and start [polybar]
 exec --no-startup-id synclient NaturalScrolling=1 HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-111
+exec --no-startup-id i3-msg 'workspace 3; exec /usr/bin/nemo; workspace 1'
 exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox; workspace 1'
 exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/kitty'
 
+exec_always --no-startup-id autotiling
 exec_always --no-startup-id picom --config /home/fran4end/.config/i3/picom.conf
 exec_always --no-startup-id twmnd 
 exec_always --no-startup-id ~/.config/polybar/launch.sh --grayblocks
@@ -285,7 +287,8 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh --grayblocks
 
 
 # battery notification
-exec --no-startup-id ~/.config/i3/i3-battery-popup -L 20 for_window [title="Battery Warning"] sticky enable
+exec --no-startup-id ~/.config/i3/i3-battery-popup.sh -L 20 -t 2m -n 
+for_window [title="Battery Warning"] sticky enable
 
 # autolock
 exec --no-startup-id xautolock -corners -000 -time 10 -locker 'i3lock -c 000000' &
